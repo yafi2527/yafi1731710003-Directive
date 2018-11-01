@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+      class="btn btn-primary"
+      (click)="onlyOdd=!onlyOdd">
+      only show add numbers
+    </button>
+    <br>
+    <br>
+    <ul class="list-group">
+      <!--<div *ngIf="onlyOdd">
+          <li class="list-group-item"
+          [ngClass]="{'odd':true}"
+          [ngStyle]="{'backgroundColor':true ? 'yellow':'transparent'}"
+          *ngFor="let odd of oddNumbers">
+          {{ odd }}
+      </li>
+      </div>
+      <div *ngIf="!onlyOdd">
+          <li class="list-group-item"
+          [ngClass]="{'even':true}"
+          [ngStyle]="{'backgroundColor':false ? 'yellow':'transparent'}"
+          *ngFor="let even of evenNumbers">
+          {{ even }}
+      </li>
+      </div>-->
+      <div *appUnless="onlyOdd">
+        <li class="list-group-item"
+        [ngClass]="{'odd': true}"
+        [ngStyle]="{'backgroundColor': true ? 'yellow':'transparent'}"
+        *ngFor="let odd of oddNumbers">
+        {{ odd }}
+      </li>
+      </div>
+    </ul>
+    <p appBasicHighlight>Style me with directive</p>
+    <p [appBetterHighlight]="'red'" [defaultColor]="'yellow'">Style me with better</p>
+    <span [ngSwitch]="value">
+      <p *ngSwitchCase="5">
+        value is 5
+      </p>
+      <p *ngSwitchCase="10">
+          value is 10
+      </p>
+      <p *ngSwitchDefault>
+          value is default
+          </p>
+    </span>
+    </div>
+  </div>
+</div>
+
